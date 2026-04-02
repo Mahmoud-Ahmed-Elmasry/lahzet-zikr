@@ -1,0 +1,252 @@
+/* 1. الإعدادات العامة لضمان التجاوب على كل الأجهزة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(201, 201, 201, 0.849);
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 2. الهيدر والوصف (Description) */
+header h1 {
+    background-color: green;
+    color: white;
+    padding: 20px;
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+}
+
+.audio-desc {
+    background: #1b3022;
+    color: #00ff00;
+    padding: 12px;
+    font-weight: bold;
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    border-bottom: 2px solid #004d00;
+}
+
+/* 3. حاوية الأذكار (Container) */
+.azkar-list {
+    padding: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.zikr-section {
+    padding: 25px 15px;
+    width: 100%;
+}
+
+/* 4. تنسيق النصوص والخطوط */
+.zikr-text {
+    font-size: clamp(1.3rem, 4.5vw, 1.9rem);
+    font-weight: 900;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+h3 {
+    color: green;
+    margin: 10px 0;
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+}
+
+.fadila {
+    background-color: rgba(0, 128, 0, 0.08);
+    color: #2c3e50;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    margin: 15px auto;
+    border-right: 5px solid green;
+    max-width: 95%;
+    text-align: right;
+}
+
+/* 5. زرار العد والوميض الأحمر (Professional Counter) */
+.counter-card {
+    background-color: #1b3022;
+    color: #00ff00;
+    width: min(200px, 85%);
+    height: 95px;
+    margin: 25px auto;
+    border-radius: 18px;
+    border: 3px solid #ccc;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.counter-card:active {
+    transform: scale(0.96);
+}
+
+.counter-card.finished {
+    background-color: #28a745;
+    color: white;
+    border-color: #fff;
+}
+
+/* التعديل الاحترافي: الوميض الأحمر عند التصفير */
+.counter-card.reset-flash {
+    background-color: #ff0000 !important;
+    border-color: #fff !important;
+    box-shadow: 0 0 20px #ff0000;
+}
+
+.num {
+    font-size: 40px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+.limit {
+    font-size: 20px;
+    opacity: 0.7;
+    margin-right: 10px;
+}
+
+.reset-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    color: #ff4d4d;
+    font-size: 26px;
+}
+
+/* 6. سيكشن الصوت الكامل وأيقونة المسجد */
+.final-audio-section {
+    background: white;
+    padding: 35px 15px;
+    margin: 50px 10px;
+    border-radius: 25px;
+    border: 2px solid green;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* تعديل لون أيقونة المسجد للأخضر الغامق */
+.final-audio-section i {
+    font-size: 45px;
+    color: #1b3022;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* 7. الفوتر وزرار الهوم */
+footer {
+    background: #1b3022;
+    color: white;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+.wa-link {
+    color: #25d366;
+    font-size: 35px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.floating-home {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: green;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 24px;
+    z-index: 9999;
+}
+
+/* 8. مشغل الصوت وتعديل لونه */
+.custom-audio {
+    width: 100%;
+    max-width: 320px;
+    height: 35px;
+    margin-top: 15px;
+    filter: sepia(100%) hue-rotate(90deg) saturate(150%);
+}
+
+/* 9. تحسينات للشاشات الصغيرة جداً */
+@media (max-width: 400px) {
+    .zikr-text {
+        font-size: 1.3rem;
+    }
+
+    .counter-card {
+        height: 85px;
+        width: 90%;
+    }
+}
+
+
+/* زرار الدعم الي في الفوتير */
+
+/* حاوية الزرار لضمان وجوده في منتصف الفوتر */
+.support-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* تنسيق زرار الدعم الفني الجديد (شبه زرار المقدمة) */
+.btn-support-footer {
+    text-decoration: none;
+    color: white;
+    background-color: #28a745; /* لون الواتساب */
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-support-footer:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+footer {
+    background-color: #1b3022 !important;
+    padding: 30px 20px !important;
+    text-align: center !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+footer p {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+}
