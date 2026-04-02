@@ -363,24 +363,28 @@
     <script>
         let deferredPrompt;
 
+        // منع الرسالة التلقائية وتجهيزها للظهور مرة واحدة عند أول ضغطة
         window.addEventListener('beforeinstallprompt', (e) => {
-            // امنع المتصفح إنه يظهر الرسالة القديمة التلقائية
             e.preventDefault();
             deferredPrompt = e;
 
-            // أول ما المستخدم يلمس أي حتة في الموقع، أظهر له رسالة التثبيت
             window.addEventListener('click', () => {
                 if (deferredPrompt) {
                     deferredPrompt.prompt();
                     deferredPrompt.userChoice.then((choiceResult) => {
-                        if (choiceResult.outcome === 'accepted') {
-                            console.log('User accepted the install prompt');
-                        }
                         deferredPrompt = null;
                     });
                 }
-            });
+            }, { once: true });
         });
+
+        // ربط السيرفس وركر لضمان عمل الموقع أوفلاين وقبوله كتطبيق
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // ملحوظة: لو الصفحة جوه فولدر، غير المسار لـ ../sw.js
+                navigator.serviceWorker.register('./sw.js');
+            });
+        }
     </script>
 
 </body>
