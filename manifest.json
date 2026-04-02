@@ -1,21 +1,25 @@
 {
+  "id": "/lahzet-zikr/",
   "name": "لحظة ذكر - أذكارك اليومية",
   "short_name": "لحظة ذكر",
-  "description": "تطبيق أذكار يومية وعداد الصلاة على النبي",
-  "start_url": "index.html",
+  "description": "تطبيق أذكار يومية ",
+  "start_url": "/lahzet-zikr/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#008000",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
