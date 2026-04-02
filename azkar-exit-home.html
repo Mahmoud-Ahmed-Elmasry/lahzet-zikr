@@ -5,7 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="description" content="أذكار الخروج من المنزل كاملة بصوت الشيخ مشاري راشد العفاسي - موقع لحظة ذكر">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C0YRRHF1X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7C0YRRHF1X');
+    </script>
+
     <title>لحظة ذكر - ذكر الخروج من المنزل</title>
+
+    <link rel="icon" type="image/png" href="image/logo.png">
+    <link rel="apple-touch-icon" href="image/logo.png">
+
+    <link rel="manifest" href="manifest.json">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C0YRRHF1X"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-7C0YRRHF1X');
+    </script>
+
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -17,11 +42,12 @@
     </header>
 
     <section class="azkar-list">
-        
+
         <div class="zikr-section" data-id="f-1">
-            <p class="zikr-text">بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ.</p>
+            <p class="zikr-text">بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ.
+            </p>
             <div class="fadila">يُقال له: هُديت وكُفيت ووُقيت، وتنحى عنه الشيطان - أبو داود والترمذي.</div>
-            
+
             <div class="counter-card" onclick="count(this, 1)">
                 <div class="counter-display">
                     <span class="num">0</span><span class="limit">/1</span>
@@ -33,9 +59,10 @@
         <hr class="separator">
 
         <div class="zikr-section" data-id="f-2">
-            <p class="zikr-text">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ أَنْ أَضِلَّ أَوْ أُضَلَّ، أَوْ أَزِلَّ أَوْ أُزَلَّ، أَوْ أَظْلِمَ أَوْ أُظْلَمَ، أَوْ أَجْهَلَ أَوْ يُجْهَلَ عَلَيَّ.</p>
+            <p class="zikr-text">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ أَنْ أَضِلَّ أَوْ أُضَلَّ، أَوْ أَزِلَّ أَوْ أُزَلَّ،
+                أَوْ أَظْلِمَ أَوْ أُظْلَمَ، أَوْ أَجْهَلَ أَوْ يُجْهَلَ عَلَيَّ.</p>
             <div class="fadila">رواه أهل السنن وصحيح الترمذي.</div>
-            
+
             <div class="counter-card" onclick="count(this, 1)">
                 <div class="counter-display">
                     <span class="num">0</span><span class="limit">/1</span>
@@ -71,6 +98,30 @@
     </footer>
 
     <script src="js\script.js"></script>
+
+    <script>
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // امنع المتصفح إنه يظهر الرسالة القديمة التلقائية
+            e.preventDefault();
+            deferredPrompt = e;
+
+            // أول ما المستخدم يلمس أي حتة في الموقع، أظهر له رسالة التثبيت
+            window.addEventListener('click', () => {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('User accepted the install prompt');
+                        }
+                        deferredPrompt = null;
+                    });
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>
