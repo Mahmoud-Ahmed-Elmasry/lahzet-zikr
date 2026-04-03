@@ -17,9 +17,8 @@
 
     <link rel="icon" type="image/png" href="image/logo.png">
     <link rel="apple-touch-icon" href="image/logo.png">
-
     <link rel="manifest" href="manifest.json">
-
+    <meta name="theme-color" content="#1a5e37">
     <meta name="description" content="موقع لحظة ذكر - دليل شامل للأذكار والأدعية اليومية من حصن المسلم...">
 
     <link rel="stylesheet" href="css/intro.css">
@@ -28,27 +27,30 @@
 
 <body>
 
-    <header>
-        <div class="main-title-container">
-            <h1 class="logo-text">لحظة ذكر</h1>
+    <header class="main-header">
+        <div class="header-container">
             <button id="installBtn" class="install-btn">
-                تحميل البرنامج <i class="fa-solid fa-cloud-arrow-down"></i>
+                تحميل التطبيق <i class="fa-solid fa-download"></i>
             </button>
-        </div>
 
-        <nav class="main-menu">
-            <a href="azkar-sabah.html" class="btn-intro">اذكار الصباح</a>
-            <a href="azkar-massa.html" class="btn-intro">اذكار المساء</a>
-            <a href="azkar-elnom.html" class="btn-intro">اذكار النوم</a>
-            <a href="azkar-wakeup.html" class="btn-intro">اذكار الاستيقاظ من النوم</a>
-            <a href="azkar-exit-home.html" class="btn-intro">ذكر عند الخروج من المنزل</a>
-            <a href="azkar-enter-home.html" class="btn-intro">ذكر عند دخول المنزل</a>
-            <a href="doaa-going-masjed.html" class="btn-intro">دعاء الذهاب إلى المسجد</a>
-            <a href="doaa-enter-masjed.html" class="btn-intro">دعاء دخول المسجد</a>
-            <a href="azkar-after-elsalah.html" class="btn-intro">اذكار بعد السلام من الصلاة</a>
-            <a href="doaa-exit-masjed.html" class="btn-intro">دعاء الخروج من المسجد</a>
-        </nav>
+            <h1 class="logo-title">لحظة ذكر</h1>
+
+            <div class="spacer-right"></div>
+        </div>
     </header>
+
+    <nav class="main-menu">
+        <a href="azkar-sabah.html" class="btn-intro">اذكار الصباح</a>
+        <a href="azkar-massa.html" class="btn-intro">اذكار المساء</a>
+        <a href="azkar-elnom.html" class="btn-intro">اذكار النوم</a>
+        <a href="azkar-wakeup.html" class="btn-intro">اذكار الاستيقاظ من النوم</a>
+        <a href="azkar-exit-home.html" class="btn-intro">ذكر عند الخروج من المنزل</a>
+        <a href="azkar-enter-home.html" class="btn-intro">ذكر عند دخول المنزل</a>
+        <a href="doaa-going-masjed.html" class="btn-intro">دعاء الذهاب إلى المسجد</a>
+        <a href="doaa-enter-masjed.html" class="btn-intro">دعاء دخول المسجد</a>
+        <a href="azkar-after-elsalah.html" class="btn-intro">اذكار بعد السلام من الصلاة</a>
+        <a href="doaa-exit-masjed.html" class="btn-intro">دعاء الخروج من المسجد</a>
+    </nav>
 
     <footer>
         <p>كل الأذكار مأخوذه من كتاب حصن المسلم ومؤلف هذا الكتاب الشيخ : سعيد بن علي بن وهف القحطاني</p>
@@ -62,14 +64,12 @@
         let deferredPrompt;
         const installBtn = document.getElementById('installBtn');
 
-        // استقبال إشارة التثبيت
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
             installBtn.style.display = 'inline-flex';
         });
 
-        // تنفيذ التثبيت
         installBtn.addEventListener('click', () => {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
@@ -82,7 +82,6 @@
             }
         });
 
-        // كود السيرفس وركر (رجعتلك الجزء اللي كان ناقص)
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js');

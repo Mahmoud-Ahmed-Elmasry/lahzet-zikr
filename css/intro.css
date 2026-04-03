@@ -94,42 +94,64 @@ footer {
 /* ========================================= */
 /*             تحميل التطبيق       */
 /* ========================================= */
-/* الحاوية السحرية اللي بتجمعهم وتشد الخط الأخضر تحتهم */
-.main-title-container {
-    display: table;
-    margin: 30px auto;
-    padding-bottom: 8px;
-    border-bottom: 4px solid #00c853; /* الخط الأخضر بتاعك */
-    text-align: center;
-    white-space: nowrap; /* يمنع الزرار ينزل سطر جديد */
+
+/* تنسيق الهيدر الأخضر العريض */
+.main-header {
+    background-color: #1a5e37; /* اللون من الصورة */
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-bottom: 2px solid #ffffff; /* خط رفيع يحدد الهيدر */
 }
 
-.logo-text {
-    display: inline-block;
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* العنوان الأبيض في المنتصف */
+.logo-title {
+    color: #ffffff;
     margin: 0;
-    font-size: 32px;
-    vertical-align: middle;
+    font-size: 26px;
+    font-weight: 900;
+    text-align: center;
+    flex-grow: 1; /* عشان ياخد النص بالظبط */
 }
 
+/* زرار تحميل التطبيق - محاكاة للصورة */
 .install-btn {
-    display: none; 
-    background-color: #00c853; 
+    display: none; /* بيظهر بالـ JS */
+    background: transparent;
     color: white;
-    border: 1px solid white;
-    padding: 3px 8px;
-    border-radius: 6px;
-    font-size: 11px;
+    border: 2px solid #ffffff;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 13px;
     font-weight: bold;
     cursor: pointer;
-    vertical-align: middle;
-    margin-right: 15px; /* يزق الزرار للشمال بعيد عن العنوان */
+    white-space: nowrap;
     align-items: center;
-    gap: 5px;
-    transition: 0.2s;
+    gap: 6px;
+    transition: 0.3s;
 }
 
+.install-btn:hover {
+    background: #ffffff;
+    color: #1a5e37;
+}
+
+/* الميزان عشان العنوان ميروحش يمين */
+.spacer-right {
+    width: 110px; /* تقريباً نفس عرض الزرار */
+}
+
+/* للموبايل */
 @media (max-width: 600px) {
-    .main-title-container { margin: 20px auto; padding-bottom: 5px; }
-    .logo-text { font-size: 22px; }
-    .install-btn { font-size: 10px; padding: 2px 6px; margin-right: 8px; }
+    .logo-title { font-size: 18px; }
+    .install-btn { font-size: 11px; padding: 5px 8px; }
+    .spacer-right { width: 85px; }
 }
