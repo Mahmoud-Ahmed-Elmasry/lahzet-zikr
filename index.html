@@ -20,8 +20,7 @@
 
     <link rel="manifest" href="manifest.json">
 
-    <meta name="description"
-        content="موقع لحظة ذكر - دليل شامل للأذكار والأدعية اليومية من حصن المسلم...">
+    <meta name="description" content="موقع لحظة ذكر - دليل شامل للأذكار والأدعية اليومية من حصن المسلم...">
 
     <link rel="stylesheet" href="css/intro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -30,7 +29,7 @@
 <body>
 
     <button id="installBtn" class="install-btn">
-        تثبيت <i class="fa-solid fa-download"></i>
+        <i class="fa-solid fa-cloud-arrow-down"></i> تحميل التطبيق
     </button>
 
     <header>
@@ -76,7 +75,7 @@
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
-                        installBtn.style.display = 'none'; 
+                        installBtn.style.display = 'none';
                     }
                     deferredPrompt = null;
                 });
@@ -91,4 +90,5 @@
         }
     </script>
 </body>
+
 </html>

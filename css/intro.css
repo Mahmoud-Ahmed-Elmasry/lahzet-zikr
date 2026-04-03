@@ -92,32 +92,43 @@ footer {
 
 
 /* ========================================= */
-/*          زرار تثبيت التطبيق       */
+/*          زرار تحميل التطبيق       */
 /* ========================================= */
 .install-btn {
-    display: none; /* هيظهر بس لما المتصفح يوافق */
-    position: fixed; /* ثابت عشان يفضل فوق حتى لو نزلت بالصفحة */
-    top: 15px;
-    left: 15px;
-    background: linear-gradient(135deg, #28a745, #218838); /* لون أخضر شيك */
+    display: none; /* بيظهر بس لما المتصفح يوافق */
+    position: absolute; /* عشان يطير فوق العنوان */
+    top: 20px; /* مسافة من فوق */
+    left: 20px; /* مسافة من الشمال بالظبط */
+    background: linear-gradient(135deg, #2ecc71, #27ae60); /* أخضر مريح للعين */
     color: white;
     border: none;
-    padding: 8px 18px;
-    border-radius: 50px;
-    font-size: 14px;
+    padding: 8px 15px;
+    border-radius: 8px; /* حواف ناعمة مش دائرية أوي */
+    font-size: 13px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 10000; /* عشان يظهر فوق كل حاجة */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
+    direction: rtl; /* عشان الأيقونة والكلمة يتظبطوا */
 }
 
-/* تفاعل الزرار عند اللمس (Scale و تغيير لون) */
+/* التفاعل اللي بيخلي الزرار "حي" */
 .install-btn:active {
-    transform: scale(0.9);
-    background: #1e7e34;
+    transform: scale(0.95);
+    background: #219150;
 }
 
-.install-btn:hover {
-    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.5);
+.install-btn i {
+    margin-left: 5px; /* مسافة بين الأيقونة والكلمة */
+}
+
+/* عشان الموبايل ميبقاش الزرار خبط في العنوان */
+@media (max-width: 600px) {
+    .install-btn {
+        top: 10px;
+        left: 10px;
+        font-size: 11px;
+        padding: 5px 10px;
+    }
 }
