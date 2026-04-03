@@ -28,6 +28,11 @@
 </head>
 
 <body>
+
+    <button id="installBtn" class="install-btn">
+        تثبيت <i class="fa-solid fa-download"></i>
+    </button>
+
     <header>
         <h1>لحظة ذكر</h1>
 
@@ -45,12 +50,6 @@
         </nav>
     </header>
 
-    <div style="text-align: center;">
-        <button id="installBtn" class="install-button" style="display: none;">
-            تثبيت التطبيق على هاتفك 📱
-        </button>
-    </div>
-
     <footer>
         <p>كل الأذكار مأخوذه من كتاب حصن المسلم ومؤلف هذا الكتاب الشيخ : سعيد بن علي بن وهف القحطاني</p>
         <p class="note">تنبيه هام: برجاء قراءة القرآن الكريم من مصحف لضمان صحة التشكيل</p>
@@ -63,7 +62,7 @@
         let deferredPrompt;
         const installBtn = document.getElementById('installBtn');
 
-        // استقبال إشارة التثبيت
+        // استقبال إشارة التثبيت من المتصفح
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
@@ -77,7 +76,7 @@
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
-                        installBtn.style.display = 'none'; // اختفاء الزرار بعد النجاح
+                        installBtn.style.display = 'none'; 
                     }
                     deferredPrompt = null;
                 });

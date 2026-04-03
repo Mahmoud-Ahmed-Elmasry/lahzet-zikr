@@ -360,35 +360,7 @@
 
     <script src="js\script.js"></script>
 
-    <script>
-        let deferredPrompt;
 
-        // إعداد إشعار التثبيت ليظهر "أوتوماتيك" وبأدب
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-
-            // هيظهر بعد 3 ثواني من دخول الصفحة لمرة واحدة فقط
-            setTimeout(() => {
-                if (deferredPrompt) {
-                    deferredPrompt.prompt();
-                    deferredPrompt.userChoice.then((choiceResult) => {
-                        deferredPrompt = null;
-                    });
-                }
-            }, 3000);
-        });
-
-        // ربط السيرفس وركر (عشان الأوفلاين والتثبيت)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                // ملحوظة مهمة: لو الصفحة جوه فولدر فرعي، خلي المسار ../sw.js
-                navigator.serviceWorker.register('./sw.js')
-                    .then(() => console.log("Service Worker Registered"))
-                    .catch(err => console.error("Service Worker Failed", err));
-            });
-        }
-    </script>
 </body>
 
 </html>
