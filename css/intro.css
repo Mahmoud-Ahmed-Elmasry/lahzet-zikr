@@ -88,3 +88,36 @@ footer {
     background-color: #218838;
     transform: translateY(-3px); 
 }
+
+
+
+/* ========================================= */
+/*          زرار تثبيت التطبيق       */
+/* ========================================= */
+.install-btn {
+    display: none; /* هيظهر بس لما المتصفح يوافق */
+    position: fixed; /* ثابت عشان يفضل فوق حتى لو نزلت بالصفحة */
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(135deg, #28a745, #218838); /* لون أخضر شيك */
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000; /* عشان يظهر فوق كل حاجة */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* تفاعل الزرار عند اللمس (Scale و تغيير لون) */
+.install-btn:active {
+    transform: scale(0.9);
+    background: #1e7e34;
+}
+
+.install-btn:hover {
+    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.5);
+}
