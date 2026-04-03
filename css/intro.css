@@ -122,35 +122,3 @@ footer {
 }
 
 /* الزرار على الشمال ببرواز أبيض زي الصورة */
-.install-btn {
-    display: none; 
-    background-color: rgba(3, 230, 15, 0.719); 
-    color: white;
-    border: 2px solid #ffffff;
-    padding: 6px 15px;
-    border-radius: 12px;
-    font-size: 13px;
-    font-weight: bold;
-    cursor: pointer;
-    white-space: nowrap;
-    align-items: center;
-    gap: 8px;
-    transition: 0.3s;
-}
-
-.install-btn:hover {
-    background-color: #ffffff;
-    color: #1a5e37;
-}
-
-/* ميزان عشان السنترة */
-.header-spacer {
-    width: 110px; 
-}
-
-/* ضبط الموبايل */
-@media (max-width: 600px) {
-    .logo-title { font-size: 18px; }
-    .install-btn { font-size: 11px; padding: 5px 10px; }
-    .header-spacer { width: 85px; }
-}
