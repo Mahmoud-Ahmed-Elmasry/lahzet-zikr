@@ -28,14 +28,14 @@
 
 <body>
 
-    <div class="top-bar">
-        <h1>لحظة ذكر</h1>
-        <button id="installBtn" class="install-btn">
-            تحميل <i class="fa-solid fa-cloud-arrow-down"></i>
-        </button>
-    </div>
-
     <header>
+        <div class="header-container">
+            <h1>لحظة ذكر</h1>
+            <button id="installBtn" class="install-btn">
+                تحميل <i class="fa-solid fa-download"></i>
+            </button>
+        </div>
+
         <nav class="main-menu">
             <a href="azkar-sabah.html" class="btn-intro">اذكار الصباح</a>
             <a href="azkar-massa.html" class="btn-intro">اذكار المساء</a>
@@ -65,7 +65,7 @@
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            // إظهار الزرار بطريقة تناسب الـ Flexbox
+            // إظهار الزرار
             installBtn.style.display = 'inline-flex';
         });
 
