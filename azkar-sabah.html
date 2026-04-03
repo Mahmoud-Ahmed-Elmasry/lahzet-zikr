@@ -365,26 +365,29 @@
     <script>
         let deferredPrompt;
 
-        // منع الرسالة التلقائية وتجهيزها للظهور مرة واحدة عند أول ضغطة
+        // إعداد إشعار التثبيت ليظهر "أوتوماتيك" وبأدب
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
 
-            window.addEventListener('click', () => {
+            // هيظهر بعد 3 ثواني من دخول الصفحة لمرة واحدة فقط
+            setTimeout(() => {
                 if (deferredPrompt) {
                     deferredPrompt.prompt();
                     deferredPrompt.userChoice.then((choiceResult) => {
                         deferredPrompt = null;
                     });
                 }
-            }, { once: true });
+            }, 3000);
         });
 
-        // ربط السيرفس وركر لضمان عمل الموقع أوفلاين وقبوله كتطبيق
+        // ربط السيرفس وركر (عشان الأوفلاين والتثبيت)
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                // ملحوظة: لو الصفحة جوه فولدر، غير المسار لـ ../sw.js
-                navigator.serviceWorker.register('./sw.js');
+                // ملحوظة مهمة: لو الصفحة جوه فولدر فرعي، خلي المسار ../sw.js
+                navigator.serviceWorker.register('./sw.js')
+                    .then(() => console.log("Service Worker Registered"))
+                    .catch(err => console.error("Service Worker Failed", err));
             });
         }
     </script>
