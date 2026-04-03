@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C0YRRHF1X"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-7C0YRRHF1X');
     </script>
 
@@ -21,20 +19,11 @@
     <link rel="apple-touch-icon" href="image/logo.png">
 
     <link rel="manifest" href="manifest.json">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C0YRRHF1X"></script>
-
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-7C0YRRHF1X');
-    </script>
 
     <meta name="description"
-        content="موقع لحظة ذكر - دليل شامل للأذكار والأدعية اليومية من حصن المسلم ، ويشمل : اذكار الصباح ، و اذكار المساء ،  و اذكار النوم ، و اذكار الاستيقاظ من النوم ، و ذكر عند الخروج من المنزل ، و ذكر عند دخول المنزل ،  و دعاء الذهاب إلى المسجد ،  و دعاء دخول المسجد ،  و اذكار بعد السلام من الصلاة ،  و دعاء الخروج من المسجد">
+        content="موقع لحظة ذكر - دليل شامل للأذكار والأدعية اليومية من حصن المسلم...">
 
     <link rel="stylesheet" href="css/intro.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -56,14 +45,15 @@
         </nav>
     </header>
 
-    <footer>
-        <p>
-            كل الأذكار مأخوذه من كتاب حصن المسلم ومؤلف هذا الكتاب الشيخ : سعيد بن علي بن وهف القحطاني
-        </p>
-        <p class="note">
-            تنبيه هام: برجاء قراءة القرآن الكريم من مصحف لضمان صحة التشكيل
-        </p>
+    <div style="text-align: center;">
+        <button id="installBtn" class="install-button" style="display: none;">
+            تثبيت التطبيق على هاتفك 📱
+        </button>
+    </div>
 
+    <footer>
+        <p>كل الأذكار مأخوذه من كتاب حصن المسلم ومؤلف هذا الكتاب الشيخ : سعيد بن علي بن وهف القحطاني</p>
+        <p class="note">تنبيه هام: برجاء قراءة القرآن الكريم من مصحف لضمان صحة التشكيل</p>
         <a href="https://wa.me/201221354261" class="btn-wat">
             <i class="fa-brands fa-whatsapp"></i> الدعم الفني
         </a>
@@ -71,34 +61,35 @@
 
     <script>
         let deferredPrompt;
+        const installBtn = document.getElementById('installBtn');
 
-        // إعداد إشعار التثبيت ليظهر "أوتوماتيك" وبأدب
+        // استقبال إشارة التثبيت
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-
-            // هيظهر بعد 3 ثواني من دخول الصفحة لمرة واحدة فقط
-            setTimeout(() => {
-                if (deferredPrompt) {
-                    deferredPrompt.prompt();
-                    deferredPrompt.userChoice.then((choiceResult) => {
-                        deferredPrompt = null;
-                    });
-                }
-            }, 3000);
+            // إظهار الزرار فوراً
+            installBtn.style.display = 'block';
         });
 
-        // ربط السيرفس وركر (عشان الأوفلاين والتثبيت)
+        // تنفيذ التثبيت عند الضغط
+        installBtn.addEventListener('click', () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        installBtn.style.display = 'none'; // اختفاء الزرار بعد النجاح
+                    }
+                    deferredPrompt = null;
+                });
+            }
+        });
+
+        // كود السيرفس وركر
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                // ملحوظة مهمة: لو الصفحة جوه فولدر فرعي، خلي المسار ../sw.js
-                navigator.serviceWorker.register('./sw.js')
-                    .then(() => console.log("Service Worker Registered"))
-                    .catch(err => console.error("Service Worker Failed", err));
+                navigator.serviceWorker.register('./sw.js');
             });
         }
     </script>
-    
 </body>
-
 </html>
