@@ -95,102 +95,62 @@ footer {
 /*             تحميل التطبيق       */
 /* ========================================= */
 
-/* تنسيق الهيدر والشريط الأخضر الممتد */
+/* الهيدر بشريط أخضر عريض ممتد */
 .main-header {
-    background-color: #ffffff; 
-    padding: 20px 0 5px 0;
+    background-color: #1a5e37; /* لون أخضر غامق زي الصورة */
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .header-container {
     display: flex;
-    flex-direction: row; /* لضمان الترتيب الأفقي */
     justify-content: space-between;
     align-items: center;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 15px 12px 15px;
-    border-bottom: 3.5px solid #00c853; /* الخط الأخضر الممتد بالعرض */
+    padding: 0 20px;
 }
 
+/* العنوان في النص باللون الأبيض */
 .logo-title {
-    color: #333;
+    color: #ffffff;
     margin: 0;
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 900;
     text-align: center;
     flex-grow: 1;
 }
 
-/* الزرار الأخضر على الشمال */
+/* الزرار على الشمال ببرواز أبيض زي الصورة */
 .install-btn {
-    display: none; /* يظهر فقط عند توفر ميزة التثبيت */
-    background-color: #00c853; 
+    display: none; 
+    background-color: rgba(3, 230, 15, 0.719); 
     color: white;
-    border: 1.5px solid white;
-    padding: 5px 12px;
-    border-radius: 8px;
-    font-size: 11px;
+    border: 2px solid #ffffff;
+    padding: 6px 15px;
+    border-radius: 12px;
+    font-size: 13px;
     font-weight: bold;
     cursor: pointer;
     white-space: nowrap;
     align-items: center;
-    gap: 6px;
-    transition: 0.2s;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    gap: 8px;
+    transition: 0.3s;
 }
 
-.install-btn:active {
-    transform: scale(0.9);
+.install-btn:hover {
+    background-color: #ffffff;
+    color: #1a5e37;
 }
 
-/* ميزان لضمان بقاء العنوان في المنتصف تماماً */
+/* ميزان عشان السنترة */
 .header-spacer {
     width: 110px; 
 }
 
-/* التجاوب مع الموبايل */
+/* ضبط الموبايل */
 @media (max-width: 600px) {
-    .logo-title { font-size: 20px; }
-    .install-btn { font-size: 10px; padding: 4px 8px; }
+    .logo-title { font-size: 18px; }
+    .install-btn { font-size: 11px; padding: 5px 10px; }
     .header-spacer { width: 85px; }
-}
-
-/* تنسيق أزرار المنيو */
-.btn-intro {
-    display: block;
-    background: #ffffff;
-    color: #00c853;
-    margin: 12px auto;
-    padding: 15px;
-    text-decoration: none;
-    border-radius: 12px;
-    width: 85%;
-    max-width: 400px;
-    text-align: center;
-    font-weight: bold;
-    border: 1.5px solid #00c853;
-    transition: 0.3s;
-}
-
-.btn-intro:hover {
-    background: #00c853;
-    color: white;
-}
-
-/* تنسيق الفوتر والواتساب */
-footer {
-    text-align: center;
-    padding: 30px 10px;
-    background: #f9f9f9;
-}
-
-.btn-wat {
-    display: inline-block;
-    background: #25d366;
-    color: white;
-    padding: 10px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 15px;
 }
