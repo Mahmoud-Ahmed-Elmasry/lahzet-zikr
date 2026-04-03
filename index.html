@@ -28,8 +28,8 @@
 <body>
 
     <header>
-        <div style="display: flex; justify-content: center; align-items: center; gap: 12px; padding: 20px 10px;">
-            <h1 style="margin: 0;">لحظة ذكر</h1>
+        <div class="title-brand">
+            <h1>لحظة ذكر</h1>
             <button id="installBtn" class="install-btn">
                 تحميل البرنامج <i class="fa-solid fa-cloud-arrow-down"></i>
             </button>
@@ -64,7 +64,6 @@
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            // إظهار الزرار بطريقة تضمن وجوده جنب العنوان
             installBtn.style.display = 'inline-flex';
         });
 

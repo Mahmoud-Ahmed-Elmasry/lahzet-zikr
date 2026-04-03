@@ -95,30 +95,51 @@ footer {
 /*             تحميل التطبيق       */
 /* ========================================= */
 
+.title-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 25px;
+    background: rgba(0, 0, 0, 0.05); /* دي الخلفية اللي هتمتد تحتهم هما الاتنين */
+    border-radius: 50px;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.title-brand h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #333;
+}
+
+/* زرار تحميل البرنامج (النسخة المصغرة جداً) */
 .install-btn {
-    display: none; /* بيظهر بس لما المتصفح يوافق */
+    display: none; 
     background-color: #00c853; 
     color: white;
-    border: 2px solid white;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 900;
+    border: 1px solid white;
+    padding: 3px 8px; /* حجم صغير جداً */
+    border-radius: 6px;
+    font-size: 11px; /* خط رفيع عشان العنوان يفضل مسيطر */
+    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     transition: 0.2s;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     white-space: nowrap;
 }
 
 .install-btn:active {
-    transform: scale(0.9);
+    transform: scale(0.95);
     background: white;
     color: #00c853;
 }
 
+/* تعديل الموبايل */
 @media (max-width: 600px) {
-    h1 { font-size: 22px; }
-    .install-btn { font-size: 11px; padding: 4px 8px; }
+    .title-brand { padding: 8px 15px; gap: 8px; }
+    .title-brand h1 { font-size: 20px; }
+    .install-btn { font-size: 10px; padding: 2px 6px; }
 }
