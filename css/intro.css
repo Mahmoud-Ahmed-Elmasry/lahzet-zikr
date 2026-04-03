@@ -94,47 +94,42 @@ footer {
 /* ========================================= */
 /*             تحميل التطبيق       */
 /* ========================================= */
-
-/* الحاوية اللي بتجمع العنوان والزرار بالخط الأخضر */
-.main-title-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    width: fit-content;
+/* الحاوية السحرية اللي بتجمعهم وتشد الخط الأخضر تحتهم */
+.main-title-container {
+    display: table;
     margin: 30px auto;
-    padding-bottom: 12px;
-    border-bottom: 3px solid #00c853; /* الخط الأخضر الممتد */
+    padding-bottom: 8px;
+    border-bottom: 4px solid #00c853; /* الخط الأخضر بتاعك */
+    text-align: center;
+    white-space: nowrap; /* يمنع الزرار ينزل سطر جديد */
 }
 
-.main-title-wrapper h1 {
+.logo-text {
+    display: inline-block;
     margin: 0;
-    font-size: 30px;
+    font-size: 32px;
+    vertical-align: middle;
 }
 
-/* الزرار المصغر جنبه */
 .install-btn {
     display: none; 
     background-color: #00c853; 
     color: white;
-    border: none;
-    padding: 4px 10px;
+    border: 1px solid white;
+    padding: 3px 8px;
     border-radius: 6px;
     font-size: 11px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
+    vertical-align: middle;
+    margin-right: 15px; /* يزق الزرار للشمال بعيد عن العنوان */
     align-items: center;
     gap: 5px;
-}
-
-.install-btn:active {
-    transform: scale(0.9);
-    filter: brightness(0.9);
+    transition: 0.2s;
 }
 
 @media (max-width: 600px) {
-    .main-title-wrapper { gap: 10px; padding-bottom: 8px; }
-    .main-title-wrapper h1 { font-size: 22px; }
-    .install-btn { font-size: 10px; }
+    .main-title-container { margin: 20px auto; padding-bottom: 5px; }
+    .logo-text { font-size: 22px; }
+    .install-btn { font-size: 10px; padding: 2px 6px; margin-right: 8px; }
 }

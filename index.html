@@ -17,6 +17,7 @@
 
     <link rel="icon" type="image/png" href="image/logo.png">
     <link rel="apple-touch-icon" href="image/logo.png">
+
     <link rel="manifest" href="manifest.json">
 
     <meta name="description" content="موقع لحظة ذكر - دليل شامل للأذكار والأدعية اليومية من حصن المسلم...">
@@ -28,8 +29,8 @@
 <body>
 
     <header>
-        <div class="main-title-wrapper">
-            <h1>لحظة ذكر</h1>
+        <div class="main-title-container">
+            <h1 class="logo-text">لحظة ذكر</h1>
             <button id="installBtn" class="install-btn">
                 تحميل البرنامج <i class="fa-solid fa-cloud-arrow-down"></i>
             </button>
@@ -61,12 +62,14 @@
         let deferredPrompt;
         const installBtn = document.getElementById('installBtn');
 
+        // استقبال إشارة التثبيت
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
             installBtn.style.display = 'inline-flex';
         });
 
+        // تنفيذ التثبيت
         installBtn.addEventListener('click', () => {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
@@ -79,6 +82,7 @@
             }
         });
 
+        // كود السيرفس وركر (رجعتلك الجزء اللي كان ناقص)
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js');
