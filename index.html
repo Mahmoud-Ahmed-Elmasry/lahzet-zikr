@@ -28,13 +28,14 @@
 
 <body>
 
-    <button id="installBtn" class="install-btn">
-        <i class="fa-solid fa-cloud-arrow-down"></i> تحميل التطبيق
-    </button>
+    <div class="top-bar">
+        <h1>لحظة ذكر</h1>
+        <button id="installBtn" class="install-btn">
+            تحميل <i class="fa-solid fa-cloud-arrow-down"></i>
+        </button>
+    </div>
 
     <header>
-        <h1>لحظة ذكر</h1>
-
         <nav class="main-menu">
             <a href="azkar-sabah.html" class="btn-intro">اذكار الصباح</a>
             <a href="azkar-massa.html" class="btn-intro">اذكار المساء</a>
@@ -61,15 +62,13 @@
         let deferredPrompt;
         const installBtn = document.getElementById('installBtn');
 
-        // استقبال إشارة التثبيت من المتصفح
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            // إظهار الزرار فوراً
-            installBtn.style.display = 'block';
+            // إظهار الزرار بطريقة تناسب الـ Flexbox
+            installBtn.style.display = 'inline-flex';
         });
 
-        // تنفيذ التثبيت عند الضغط
         installBtn.addEventListener('click', () => {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
@@ -82,7 +81,6 @@
             }
         });
 
-        // كود السيرفس وركر
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js');
