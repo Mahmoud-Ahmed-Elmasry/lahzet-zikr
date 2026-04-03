@@ -65,6 +65,7 @@
         let deferredPrompt;
         const installBtn = document.getElementById('installBtn');
 
+        // كود استقبال إشارة تثبيت التطبيق
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
@@ -83,7 +84,7 @@
             }
         });
 
-        // تشغيل الـ Service Worker
+        // تسجيل الـ Service Worker ليعمل التطبيق بدون إنترنت
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js');

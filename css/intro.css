@@ -95,8 +95,7 @@ footer {
 /*             تحميل التطبيق       */
 /* ========================================= */
 
-
-/* تنسيق الهيدر والخط الأخضر الممتد */
+/* تنسيق الهيدر والشريط الأخضر الممتد */
 .main-header {
     background-color: #ffffff; 
     padding: 20px 0 5px 0;
@@ -104,12 +103,13 @@ footer {
 
 .header-container {
     display: flex;
+    flex-direction: row; /* لضمان الترتيب الأفقي */
     justify-content: space-between;
     align-items: center;
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 15px 12px 15px;
-    border-bottom: 3.5px solid #00c853; /* الخط الأخضر بتاعك */
+    border-bottom: 3.5px solid #00c853; /* الخط الأخضر الممتد بالعرض */
 }
 
 .logo-title {
@@ -123,18 +123,18 @@ footer {
 
 /* الزرار الأخضر على الشمال */
 .install-btn {
-    display: none; 
+    display: none; /* يظهر فقط عند توفر ميزة التثبيت */
     background-color: #00c853; 
     color: white;
     border: 1.5px solid white;
-    padding: 4px 10px;
+    padding: 5px 12px;
     border-radius: 8px;
     font-size: 11px;
     font-weight: bold;
     cursor: pointer;
     white-space: nowrap;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
     transition: 0.2s;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -143,24 +143,54 @@ footer {
     transform: scale(0.9);
 }
 
+/* ميزان لضمان بقاء العنوان في المنتصف تماماً */
 .header-spacer {
-    width: 100px; /* ميزان السنترة */
+    width: 110px; 
 }
 
+/* التجاوب مع الموبايل */
 @media (max-width: 600px) {
     .logo-title { font-size: 20px; }
-    .install-btn { font-size: 10px; padding: 3px 7px; }
-    .header-spacer { width: 75px; }
+    .install-btn { font-size: 10px; padding: 4px 8px; }
+    .header-spacer { width: 85px; }
 }
 
-/* باقي تنسيقاتك القديمة (الواتساب والمنيوي) */
+/* تنسيق أزرار المنيو */
+.btn-intro {
+    display: block;
+    background: #ffffff;
+    color: #00c853;
+    margin: 12px auto;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 12px;
+    width: 85%;
+    max-width: 400px;
+    text-align: center;
+    font-weight: bold;
+    border: 1.5px solid #00c853;
+    transition: 0.3s;
+}
+
+.btn-intro:hover {
+    background: #00c853;
+    color: white;
+}
+
+/* تنسيق الفوتر والواتساب */
+footer {
+    text-align: center;
+    padding: 30px 10px;
+    background: #f9f9f9;
+}
+
 .btn-wat {
     display: inline-block;
     background: #25d366;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 25px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 15px;
 }
