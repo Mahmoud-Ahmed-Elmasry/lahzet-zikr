@@ -17,7 +17,6 @@
 
     <link rel="icon" type="image/png" href="image/logo.png">
     <link rel="apple-touch-icon" href="image/logo.png">
-
     <link rel="manifest" href="manifest.json">
 
     <meta name="description" content="موقع لحظة ذكر - دليل شامل للأذكار والأدعية اليومية من حصن المسلم...">
@@ -29,10 +28,10 @@
 <body>
 
     <header>
-        <div class="title-container">
-            <h1>لحظة ذكر</h1>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 12px; padding: 20px 10px;">
+            <h1 style="margin: 0;">لحظة ذكر</h1>
             <button id="installBtn" class="install-btn">
-                تحميل <i class="fa-solid fa-download"></i>
+                تحميل البرنامج <i class="fa-solid fa-cloud-arrow-down"></i>
             </button>
         </div>
 
@@ -65,6 +64,7 @@
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
+            // إظهار الزرار بطريقة تضمن وجوده جنب العنوان
             installBtn.style.display = 'inline-flex';
         });
 
