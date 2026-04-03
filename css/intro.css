@@ -95,55 +95,56 @@ footer {
 /*             تحميل التطبيق       */
 /* ========================================= */
 
-header {
-    position: relative; /* ضروري عشان الزرار يطير جواه */
-    text-align: center;
-    padding: 30px 10px;
+/* الحاوية اللي بتجمع العنوان والزرار "جنب بعض" */
+.title-container {
+    display: block;
+    text-align: center; /* العنوان يفضل في النص */
+    margin-bottom: 20px;
+    padding: 10px;
 }
 
-header h1 {
+/* العنوان */
+.title-container h1 {
+    display: inline-block; /* السر هنا: العنوان بقى "جار" للزرار */
+    vertical-align: middle;
     margin: 0;
-    display: block; /* رجعناه سطر لوحده عشان الديزاين ميبوظش */
 }
 
-/* زرار التحميل - متقدم للشمال */
+/* الزرار - النسخة اللي جنبه على الشمال */
 .install-btn {
-    display: none; 
-    position: absolute;
-    top: 35px; /* موازي للعنوان */
-    left: 10px; /* زقيناه ناحية الشمال أكتر */
+    display: none; /* هيظهر بالـ JS */
+    display: inline-flex; /* خليه inline عشان يجي جنبه */
+    vertical-align: middle;
+    margin-right: 15px; /* يزق الزرار للشمال بعيد عن العنوان شوية */
     background-color: #00c853; 
     color: #ffffff;
     border: 2px solid #ffffff;
-    padding: 6px 12px;
+    padding: 5px 12px;
     border-radius: 8px;
     font-size: 13px;
     font-weight: 900;
     cursor: pointer;
-    z-index: 1000;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     transition: all 0.2s ease;
     align-items: center;
     gap: 5px;
 }
 
-/* التفاعل عند الضغط */
 .install-btn:active {
     transform: scale(0.9);
     background-color: #ffffff;
     color: #00c853;
 }
 
-/* ضبط الموبايل (عشان يفضل بعيد عن العنوان) */
+/* الموبايل - يفضلوا جنب بعض وصغيرين */
 @media (max-width: 600px) {
-    header h1 {
-        font-size: 24px;
+    .title-container h1 {
+        font-size: 22px;
     }
 
     .install-btn {
-        top: 30px;
-        left: 5px; /* أقصى الشمال في الموبايل */
         font-size: 11px;
         padding: 4px 8px;
+        margin-right: 8px;
     }
 }
