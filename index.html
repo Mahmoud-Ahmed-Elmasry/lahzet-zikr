@@ -18,7 +18,8 @@
     <link rel="icon" type="image/png" href="image/logo.png">
     <link rel="apple-touch-icon" href="image/logo.png">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#1a5e37">
+    <meta name="theme-color" content="#00c853">
+
     <meta name="description" content="موقع لحظة ذكر - دليل شامل للأذكار والأدعية اليومية من حصن المسلم...">
 
     <link rel="stylesheet" href="css/intro.css">
@@ -35,7 +36,7 @@
 
             <h1 class="logo-title">لحظة ذكر</h1>
 
-            <div class="spacer-right"></div>
+            <div class="header-spacer"></div>
         </div>
     </header>
 
@@ -82,6 +83,7 @@
             }
         });
 
+        // تشغيل الـ Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js');
