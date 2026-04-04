@@ -99,15 +99,15 @@ footer {
 .btn-install-fixed {
     display: none; /* بيظهر بس لما الجهاز يدعم التثبيت */
     position: absolute;
-    left: 20px;     /* مكانه من الشمال */
-    top: 50%;       /* توسيط رأسي */
+    left: -1px;     /* مكانه من الشمال */
+    top: 23%;       /* توسيط رأسي */
     transform: translateY(-50%);
     
     /* المقاسات والألوان */
     background-color: #00e676; /* أخضر فاتح زاهي عشان يبان */
     color: #1a5e37;           /* نص أخضر غامق للوضوح */
     border: none;
-    padding: 8px 16px;
+    padding: 8px 13px;
     border-radius: 50px;      /* حواف دائرية ناعمة جداً */
     font-size: 13px;
     font-weight: bold;
@@ -122,7 +122,7 @@ footer {
 
 /* التفاعل عند تمرير الماوس */
 .btn-install-fixed:hover {
-    background-color: #00c853;
+    background-color: #00df72;
     color: white;
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
