@@ -26,7 +26,8 @@
 
 <body>
 
-    <header style="position: relative;"> <button id="installBtn" class="floating-btn">
+    <header style="position: relative; padding: 20px 0;">
+        <button id="installBtn" class="btn-install-fixed">
             تحميل التطبيق <i class="fa-solid fa-download"></i>
         </button>
 
@@ -57,25 +58,20 @@
     <script>
         let deferredPrompt;
         const installBtn = document.getElementById('installBtn');
-
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
             installBtn.style.display = 'inline-flex';
         });
-
         installBtn.addEventListener('click', () => {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        installBtn.style.display = 'none';
-                    }
+                    if (choiceResult.outcome === 'accepted') installBtn.style.display = 'none';
                     deferredPrompt = null;
                 });
             }
         });
-
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js');

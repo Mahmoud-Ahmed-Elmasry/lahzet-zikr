@@ -96,39 +96,39 @@ footer {
 /* ========================================= */
 
 
-/* --- الجزء الخاص بتحريك زر التحميل (هنا التعديل يا محمود) --- */
-
-.floating-btn {
+.btn-install-fixed {
     display: none; /* بيظهر بس لما الجهاز يدعم التثبيت */
-    position: absolute; /* عشان يتحرك بحرية فوق الهيدر */
+    position: absolute;
+    left: 20px;     /* مكانه من الشمال */
+    top: 50%;       /* توسيط رأسي */
+    transform: translateY(-50%);
     
-    /* 👇 غير الأرقام دي عشان تحرك الزرار في أي مكان 👇 */
-    top: 50px;      /* المسافة من فوق (كل ما تكبر ينزل لتحت) */
-    left: 20px;     /* المسافة من الشمال (كل ما تكبر يدخل لليمين) */
-    /* 👆 ------------------------------------------ 👆 */
-
-    background-color: transparent;
-    color: #00c853; 
-    border: 2px solid #00c853;
-    padding: 8px 15px;
-    border-radius: 10px;
+    /* المقاسات والألوان */
+    background-color: #00e676; /* أخضر فاتح زاهي عشان يبان */
+    color: #1a5e37;           /* نص أخضر غامق للوضوح */
+    border: none;
+    padding: 8px 16px;
+    border-radius: 50px;      /* حواف دائرية ناعمة جداً */
     font-size: 13px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
-    z-index: 999; /* يضمن إنه فوق كل حاجة */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    
+    /* تأثيرات الحركة */
+    transition: all 0.2s ease;
+    align-items: center;
+    gap: 8px;
 }
 
-.floating-btn:hover {
+/* التفاعل عند تمرير الماوس */
+.btn-install-fixed:hover {
     background-color: #00c853;
     color: white;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 
-/* للموبايل: لو عايز تغير مكانه في الشاشات الصغيرة */
-@media (max-width: 600px) {
-    .floating-btn {
-        top: 20px;   /* مكانه من فوق في الموبايل */
-        left: 10px;  /* مكانه من الشمال في الموبايل */
-        font-size: 11px;
-    }
+/* التفاعل مع الضغطة (بينضغط لجوه) */
+.btn-install-fixed:active {
+    transform: translateY(-48%) scale(0.95); /* تأثير الضغطة */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
