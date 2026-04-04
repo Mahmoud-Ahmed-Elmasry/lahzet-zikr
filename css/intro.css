@@ -120,7 +120,7 @@ footer {
 .btn-install-fixed {
     display: none;
     position: absolute;
-    left: 10px;
+    left: 2px;
     /* جرب تغير دي لو عايز تحركه يمين شوية */
     top: 50%;
     transform: translateY(-50%);
@@ -130,7 +130,7 @@ footer {
     border: none;
     padding: 8px 10px;
     border-radius: 50px;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
