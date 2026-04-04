@@ -21,7 +21,7 @@ h1 {
     color: white;
     background-color: green;
     padding: 15px; 
-    margin-bottom: 10px;
+    margin-bottom: 3px;
 } 
 
 .btn-intro {
@@ -99,15 +99,15 @@ footer {
 .btn-install-fixed {
     display: none; /* بيظهر بس لما الجهاز يدعم التثبيت */
     position: absolute;
-    left: -1px;     /* مكانه من الشمال */
-    top: 25%;       /* توسيط رأسي */
+    left: 1px;     /* مكانه من الشمال */
+    top: 26%;       /* توسيط رأسي */
     transform: translateY(-50%);
     
     /* المقاسات والألوان */
     background-color: #00e676; /* أخضر فاتح زاهي عشان يبان */
     color: white;          
     border: none;
-    padding: 8px 13px;
+    padding: 8px 5px;
     border-radius: 50px;      /* حواف دائرية ناعمة جداً */
     font-size: 13px;
     font-weight: bold;
