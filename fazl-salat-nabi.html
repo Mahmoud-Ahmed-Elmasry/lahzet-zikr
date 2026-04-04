@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C0YRRHF1X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-7C0YRRHF1X');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فضل الصلاة على النبي</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>فضل الصلاة على النبي ﷺ</h1>
+    </header>
+
+    <div class="audio-desc">
+        اللهم صلِّ وسلم وبارك على نبينا محمد
+    </div>
+
+    <div class="azkar-list">
+        <div class="zikr-section">
+            <p class="zikr-text">قال تعالى : بسم اللَّهَ الرحمن الرحيم
+                <br>"إِنَّ اللَّهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ يَا أَيُّهَا الَّذين
+                آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا"
+            </p>
+        </div>
+        <hr class="separator">
+
+        <div class="zikr-section">
+            <p class="zikr-text">في حديث عبد الله بن عمرو بن العاص يقول<br>
+                ان النبي صلى الله عليه وسلم قال: "من صلى علي صلاه صلى الله عليه بها 10"
+            </p>
+        </div>
+        <hr class="separator">
+
+        <div class="zikr-section">
+            <p class="zikr-text">يقول النبي صلى الله عليه وسلم<br>
+                " اقربكم مني مجلسا يوم القيامة اكثركم علي صلاة "
+            </p>
+        </div>
+        <hr class="separator">
+
+        <div class="zikr-section">
+            <p class="zikr-text">وفي حديث أوس بن أوس<br>
+                قال رسول الله ﷺ: «إنَّ من أفضلِ أيامِكم يومَ الجمعةِ، فأكثروا عليَّ من الصلاةِ فيه؛ فإنَّ صلاتَكم
+                معروضةٌ عليَّ»، فقالوا: يا رسولَ اللهِ، وكيف تُعرضُ صلاتُنا عليك وقد أَرَمْتَ (أي بليت)؟ قال: «إنَّ
+                اللهَ حرَّم على الأرضِ أن تأكلَ أجسادَ الأنبياءِ»
+            </p>
+        </div>
+        <hr class="separator">
+
+        <div class="zikr-section">
+            <p class="zikr-text">عن جبريل عليه السلام أن النبي ﷺ قال: "رغم أنف امرئ ذكرت عنده ولم يصلي عليك"</p>
+        </div>
+        <hr class="separator">
+
+        <div style="height: 30px;"></div>
+
+        <div class="special-counter" id="mainCounter">
+            <div class="pray-text">اللهم صلِّ على محمد</div>
+            <div class="num-display" id="countNumber">0</div>
+
+            <i class="fa-solid fa-infinity infinity-icon"></i>
+
+            <div class="reset-circle" id="resetBtn" title="تصفير">
+                <i class="fa-solid fa-rotate-left"></i>
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html" class="floating-home">
+        <i class="fa-solid fa-house"></i>
+    </a>
+
+    <footer>
+        <p>برجاء القراءة بتمهل لفهم معنى الأحاديث وتدبر فضلها</p>
+        <div class="support-container">
+            <a href="https://wa.me/201221354261" class="btn-support-footer">
+                <i class="fa-brands fa-whatsapp"></i> الدعم الفني
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        const counter = document.getElementById('mainCounter');
+        const num = document.getElementById('countNumber');
+        const reset = document.getElementById('resetBtn');
+
+        // استرجاع القيمة المخزنة
+        let total = localStorage.getItem('prayTotal') || 0;
+        num.innerText = total;
+
+        // وظيفة العد (عند الضغط على المستطيل الأسود)
+        counter.addEventListener('click', () => {
+            total++;
+            num.innerText = total;
+            localStorage.setItem('prayTotal', total);
+        });
+
+        // وظيفة التصفير المباشر (عند الضغط على الدائرة الحمراء)
+        reset.addEventListener('click', (e) => {
+            e.stopPropagation(); // منع تفعيل حدث الضغط الخاص بالعداد الكبير
+            total = 0;
+            num.innerText = 0;
+            localStorage.setItem('prayTotal', 0);
+        });
+    </script>
+</body>
+
+</html>

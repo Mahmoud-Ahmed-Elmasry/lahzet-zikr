@@ -76,7 +76,7 @@ h3 {
     text-align: right;
 }
 
-/* 5. زرار العد والوميض الأحمر (Professional Counter) */
+/* 5. زرار العد والوميض الأحمر (العدادات القديمة) */
 .counter-card {
     background-color: #1b3022;
     color: #00ff00;
@@ -104,7 +104,6 @@ h3 {
     border-color: #fff;
 }
 
-/* التعديل الاحترافي: الوميض الأحمر عند التصفير */
 .counter-card.reset-flash {
     background-color: #ff0000 !important;
     border-color: #fff !important;
@@ -131,6 +130,72 @@ h3 {
     font-size: 26px;
 }
 
+/* --- إضافة: زرار العد الخاص بالصلاة على النبي (المطور) --- */
+.special-counter {
+    background-color: #1b3022 !important;
+    color: #00ff00 !important;
+    width: min(320px, 95%);
+    height: 150px;
+    margin: 40px auto;
+    border-radius: 25px;
+    border: 3px solid #444;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
+}
+
+.special-counter:active {
+    transform: scale(0.97);
+}
+
+.pray-text {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.num-display {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.infinity-icon {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 26px;
+    color: rgba(169, 169, 169, 0.5);
+}
+
+.reset-circle {
+    position: absolute;
+    bottom: 12px;
+    left: 15px;
+    width: 45px;
+    height: 45px;
+    background-color: #ff4d4d;
+    color: white !important;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border: 2px solid white;
+    z-index: 10;
+    transition: 0.2s;
+}
+
+.reset-circle:active {
+    transform: scale(0.8);
+}
+
 /* 6. سيكشن الصوت الكامل وأيقونة المسجد */
 .final-audio-section {
     background: white;
@@ -141,7 +206,6 @@ h3 {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* تعديل لون أيقونة المسجد للأخضر الغامق */
 .final-audio-section i {
     font-size: 45px;
     color: #1b3022;
@@ -149,25 +213,23 @@ h3 {
     display: block;
 }
 
-/* 7. الفوتر وزرار الهوم */
+/* 7. الفوتر وزرار الهوم (تم التعديل ليكون يساراً ومتفاعلاً) */
 footer {
-    background: #1b3022;
+    background-color: #1b3022 !important;
     color: white;
-    padding: 40px 20px;
-    margin-top: 50px;
-}
-
-.wa-link {
-    color: #25d366;
-    font-size: 35px;
-    vertical-align: middle;
-    margin-right: 10px;
+    padding: 30px 20px !important;
+    text-align: center !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
 }
 
 .floating-home {
     position: fixed;
     bottom: 25px;
-    right: 25px;
+    left: 25px;
+    /* تم نقله لليسار */
     background: green;
     color: white;
     width: 60px;
@@ -179,33 +241,20 @@ footer {
     text-decoration: none;
     font-size: 24px;
     z-index: 9999;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* 8. مشغل الصوت وتعديل لونه */
-.custom-audio {
-    width: 100%;
-    max-width: 320px;
-    height: 35px;
-    margin-top: 15px;
-    filter: sepia(100%) hue-rotate(90deg) saturate(150%);
+.floating-home:hover {
+    transform: scale(1.1) rotate(5deg);
+    background-color: #006400;
 }
 
-/* 9. تحسينات للشاشات الصغيرة جداً */
-@media (max-width: 400px) {
-    .zikr-text {
-        font-size: 1.3rem;
-    }
-
-    .counter-card {
-        height: 85px;
-        width: 90%;
-    }
+.floating-home:active {
+    transform: scale(0.9);
 }
 
-
-/* زرار الدعم الي في الفوتير */
-
-/* حاوية الزرار لضمان وجوده في منتصف الفوتر */
+/* زرار الدعم (متفاعل) */
 .support-container {
     display: flex;
     justify-content: center;
@@ -213,12 +262,11 @@ footer {
     width: 100%;
 }
 
-/* تنسيق زرار الدعم الفني الجديد (شبه زرار المقدمة) */
 .btn-support-footer {
     text-decoration: none;
     color: white;
-    background-color: #28a745; /* لون الواتساب */
-    padding: 10px 20px;
+    background-color: #28a745;
+    padding: 10px 25px;
     border-radius: 50px;
     font-size: 1rem;
     font-weight: bold;
@@ -232,21 +280,38 @@ footer {
 
 .btn-support-footer:hover {
     background-color: #218838;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-footer {
-    background-color: #1b3022 !important;
-    padding: 30px 20px !important;
-    text-align: center !important;
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+.btn-support-footer:active {
+    transform: scale(0.95);
 }
 
-footer p {
-    margin: 10px 0;
+/* 8. مشغل الصوت وتعديل لونه */
+.custom-audio {
     width: 100%;
-    text-align: center;
+    max-width: 320px;
+    height: 35px;
+    margin-top: 15px;
+    filter: sepia(100%) hue-rotate(90deg) saturate(150%);
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, green, transparent);
+    margin: 20px auto;
+    width: 85%;
+}
+
+@media (max-width: 400px) {
+    .zikr-text {
+        font-size: 1.3rem;
+    }
+
+    .counter-card {
+        height: 85px;
+        width: 90%;
+    }
 }
