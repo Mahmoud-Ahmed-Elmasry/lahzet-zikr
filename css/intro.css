@@ -95,30 +95,40 @@ footer {
 /*             تحميل التطبيق       */
 /* ========================================= */
 
-/* الهيدر بشريط أخضر عريض ممتد */
-.main-header {
-    background-color: #1a5e37; /* لون أخضر غامق زي الصورة */
-    padding: 15px 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+
+/* --- الجزء الخاص بتحريك زر التحميل (هنا التعديل يا محمود) --- */
+
+.floating-btn {
+    display: none; /* بيظهر بس لما الجهاز يدعم التثبيت */
+    position: absolute; /* عشان يتحرك بحرية فوق الهيدر */
+    
+    /* 👇 غير الأرقام دي عشان تحرك الزرار في أي مكان 👇 */
+    top: 50px;      /* المسافة من فوق (كل ما تكبر ينزل لتحت) */
+    left: 20px;     /* المسافة من الشمال (كل ما تكبر يدخل لليمين) */
+    /* 👆 ------------------------------------------ 👆 */
+
+    background-color: transparent;
+    color: #00c853; 
+    border: 2px solid #00c853;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 999; /* يضمن إنه فوق كل حاجة */
 }
 
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
+.floating-btn:hover {
+    background-color: #00c853;
+    color: white;
 }
 
-/* العنوان في النص باللون الأبيض */
-.logo-title {
-    color: #ffffff;
-    margin: 0;
-    font-size: 26px;
-    font-weight: 900;
-    text-align: center;
-    flex-grow: 1;
+/* للموبايل: لو عايز تغير مكانه في الشاشات الصغيرة */
+@media (max-width: 600px) {
+    .floating-btn {
+        top: 20px;   /* مكانه من فوق في الموبايل */
+        left: 10px;  /* مكانه من الشمال في الموبايل */
+        font-size: 11px;
+    }
 }
-
-/* الزرار على الشمال ببرواز أبيض زي الصورة */

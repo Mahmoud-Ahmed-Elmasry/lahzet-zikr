@@ -18,6 +18,7 @@
     <link rel="icon" type="image/png" href="image/logo.png">
     <link rel="apple-touch-icon" href="image/logo.png">
     <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00c853">
 
     <link rel="stylesheet" href="css/intro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -25,7 +26,10 @@
 
 <body>
 
-    <header>
+    <header style="position: relative;"> <button id="installBtn" class="floating-btn">
+            تحميل التطبيق <i class="fa-solid fa-download"></i>
+        </button>
+
         <h1 class="logo-text">لحظة ذكر</h1>
     </header>
 
@@ -51,7 +55,27 @@
     </footer>
 
     <script>
-        // تسجيل الـ Service Worker الأصلي
+        let deferredPrompt;
+        const installBtn = document.getElementById('installBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.style.display = 'inline-flex';
+        });
+
+        installBtn.addEventListener('click', () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        installBtn.style.display = 'none';
+                    }
+                    deferredPrompt = null;
+                });
+            }
+        });
+
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js');
