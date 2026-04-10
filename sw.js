@@ -1,27 +1,51 @@
-const CACHE_NAME = 'lahzet-zikr-v6';
+const cacheName = 'lahzet-zikr-v2';
 const assets = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/icon-192.png',
-  '/icon-512.png',
+  '/css/intro.css',
   '/image/logo.png',
-  '/css/intro.css'
+  // روابط صفحات الأذكار كاملة
+  '/azkar-sabah.html',
+  '/azkar-massa.html',
+  '/azkar-elnom.html',
+  '/azkar-wakeup.html',
+  '/azkar-exit-home.html',
+  '/azkar-enter-home.html',
+  '/doaa-going-masjed.html',
+  '/doaa-enter-masjed.html',
+  '/doaa-exit-masjed.html',
+  '/azkar-after-elsalah.html',
+  '/fazl-salat-nabi.html'
 ];
 
-self.addEventListener('install', evt => {
-  evt.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      console.log('Caching shell assets');
+// مرحلة التثبيت: حفظ الملفات في الكاش
+self.addEventListener('install', (e) => {
+  e.waitUntil(
+    caches.open(cacheName).then((cache) => {
+      console.log('Caching all assets...');
       return cache.addAll(assets);
     })
   );
 });
 
-self.addEventListener('fetch', evt => {
-  evt.respondWith(
-    caches.match(evt.request).then(cacheRes => {
-      return cacheRes || fetch(evt.request);
+// مرحلة التفعيل: مسح الكاش القديم (v1) وتشغيل الجديد
+self.addEventListener('activate', (e) => {
+  e.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.filter((key) => key !== cacheName).map((key) => caches.delete(key))
+      );
+    })
+  );
+});
+
+// مرحلة جلب البيانات: تشغيل الموقع بدون إنترنت
+self.addEventListener('fetch', (e) => {
+  e.respondWith(
+    caches.match(e.request).then((response) => {
+      // لو الملف موجود في الكاش رجعه، لو مش موجود هاته من النت
+      return response || fetch(e.request);
     })
   );
 });

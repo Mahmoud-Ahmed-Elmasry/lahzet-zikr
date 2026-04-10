@@ -91,30 +91,14 @@
         </div>
     </footer>
 
-    <script>
-        const counter = document.getElementById('mainCounter');
-        const num = document.getElementById('countNumber');
-        const reset = document.getElementById('resetBtn');
-
-        // استرجاع القيمة المخزنة
-        let total = localStorage.getItem('prayTotal') || 0;
-        num.innerText = total;
-
-        // وظيفة العد (عند الضغط على المستطيل الأسود)
-        counter.addEventListener('click', () => {
-            total++;
-            num.innerText = total;
-            localStorage.setItem('prayTotal', total);
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js');
         });
+    }
+</script>
 
-        // وظيفة التصفير المباشر (عند الضغط على الدائرة الحمراء)
-        reset.addEventListener('click', (e) => {
-            e.stopPropagation(); // منع تفعيل حدث الضغط الخاص بالعداد الكبير
-            total = 0;
-            num.innerText = 0;
-            localStorage.setItem('prayTotal', 0);
-        });
-    </script>
 </body>
 
 </html>
