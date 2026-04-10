@@ -2,7 +2,7 @@
   "name": "لحظة ذكر - أذكارك اليومية",
   "short_name": "لحظة ذكر",
   "description": "تطبيق أذكار يومية",
-  "start_url": "/lahzet-zikr/index.html",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#008000",
