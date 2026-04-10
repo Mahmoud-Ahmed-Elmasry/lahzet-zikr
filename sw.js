@@ -1,18 +1,19 @@
-const CACHE_NAME = 'lahzet-zikr-v5';
+const CACHE_NAME = 'lahzet-zikr-v6';
 const assets = [
-  '/lahzet-zikr/',
-  '/lahzet-zikr/index.html',
-  '/lahzet-zikr/manifest.json',
-  '/lahzet-zikr/icon-192.png',
-  '/lahzet-zikr/icon-512.png',
-  '/lahzet-zikr/image/logo.png',
-  '/lahzet-zikr/css/intro.css'
+  '/',
+  '/index.html',
+  '/manifest.json',
+  '/icon-192.png',
+  '/icon-512.png',
+  '/image/logo.png',
+  '/css/intro.css'
 ];
 
 self.addEventListener('install', evt => {
   evt.waitUntil(
-    caches.open(v1).then(cache => {
-      cache.addAll(assets);
+    caches.open(CACHE_NAME).then(cache => {
+      console.log('Caching shell assets');
+      return cache.addAll(assets);
     })
   );
 });
