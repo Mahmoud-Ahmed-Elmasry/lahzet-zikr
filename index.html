@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>لحظة ذكر - أذكارك اليومية </title>
+    <meta name="description" content="تطبيق لحظة ذكر هو رفيقك اليومي للأذكار وحصن المسلم. يضم أذكار الصباح والمساء، أذكار النوم، ودعاء المسجد بتصميم بسيط وسهل الاستخدام يعمل بدون إنترنت.">
+    <meta name="keywords" content="أذكار، لحظة ذكر، أذكار الصباح، أذكار المساء، حصن المسلم، أذكار المسلم، تطبيق أذكار، أذكار بدون نت">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C0YRRHF1X"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -13,8 +17,6 @@
         gtag('config', 'G-7C0YRRHF1X');
     </script>
     
-    <title> لحظة ذكر </title>
-
     <link rel="icon" type="image/png" href="image/logo.png">
     <link rel="apple-touch-icon" href="image/logo.png">
     <link rel="manifest" href="manifest.json">
@@ -26,11 +28,11 @@
 
 <body>
 
-    <h1>
-        <button id="installBtn" class="btn-install-fixed">تحميل التطبيق</button>
-    </h1>
-
-    <h1 class="logo-text">لحظة ذكر</h1>
+    <header>
+        <h1>
+            <button id="installBtn" class="btn-install-fixed" style="display: none;">تحميل التطبيق</button>
+        </h1>
+        <h1 class="logo-text">لحظة ذكر</h1>
     </header>
 
     <nav class="main-menu">
@@ -44,11 +46,11 @@
         <a href="doaa-enter-masjed.html" class="btn-intro">دعاء دخول المسجد</a>
         <a href="azkar-after-elsalah.html" class="btn-intro">اذكار بعد السلام من الصلاة</a>
         <a href="doaa-exit-masjed.html" class="btn-intro">دعاء الخروج من المسجد</a>
-        <a href="fazl-salat-nabi.html" class="btn-intro">فضل الصلاه على النبي </a>
+        <a href="fazl-salat-nabi.html" class="btn-intro">فضل الصلاة على النبي</a>
     </nav>
 
     <footer>
-        <p>كل الأذكار مأخوذه من كتاب حصن المسلم ومؤلف هذا الكتاب الشيخ : سعيد بن علي بن وهف القحطاني</p>
+        <p>كل الأذكار مأخوذة من كتاب حصن المسلم للشيخ: سعيد بن علي بن وهف القحطاني</p>
         <p class="note">تنبيه هام: برجاء قراءة القرآن الكريم من مصحف لضمان صحة التشكيل</p>
         <a href="https://wa.me/201221354261" class="btn-wat">
             <i class="fa-brands fa-whatsapp"></i> الدعم الفني
@@ -74,7 +76,9 @@
         });
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js');
+                navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('Service Worker Registered'))
+                .catch(err => console.log('Service Worker Error', err));
             });
         }
     </script>
