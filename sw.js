@@ -1,11 +1,14 @@
-const cacheName = 'lahzet-zikr-v2';
+const cacheName = 'lahzet-zikr-v3'; 
 const assets = [
   '/',
   '/index.html',
   '/manifest.json',
   '/css/intro.css',
+  '/css/main.css',
   '/image/logo.png',
-  // روابط صفحات الأذكار كاملة
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+
+  // روابط صفحات الأذكار (تأكد أن أسماء ملفات HTML مطابقة لهذه الروابط)
   '/azkar-sabah.html',
   '/azkar-massa.html',
   '/azkar-elnom.html',
@@ -16,20 +19,33 @@ const assets = [
   '/doaa-enter-masjed.html',
   '/doaa-exit-masjed.html',
   '/azkar-after-elsalah.html',
-  '/fazl-salat-nabi.html'
+  '/fazl-salat-nabi.html',
+  //  ملفات الصوت 
+  '/sounds/after-salah.mp3',
+  '/sounds/azkar-elnom.mp3',
+  '/sounds/enter-masjed.mp3',
+  '/sounds/exit-home.mp3',
+  '/sounds/exit-masjed.mp3',
+  '/sounds/going-masjed.mp3',
+  '/sounds/massa.mp3',
+  '/sounds/sabah.mp3',
+  '/sounds/wakeup.mp3',
+  '/sounds/enter-home.mp3'
 ];
 
-// مرحلة التثبيت: حفظ الملفات في الكاش
+// مرحلة التثبيت وحفظ الملفات
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(cacheName).then((cache) => {
-      console.log('Caching all assets...');
-      return cache.addAll(assets);
+      console.log('جاري حفظ ملفات الصوت والديزاين...');
+      return cache.addAll(assets).catch(err => {
+          console.error('هناك ملف مفقود أو اسمه غير مطابق، تأكد من الأسماء:', err);
+      });
     })
   );
 });
 
-// مرحلة التفعيل: مسح الكاش القديم (v1) وتشغيل الجديد
+// مرحلة التفعيل وتنظيف الملفات القديمة
 self.addEventListener('activate', (e) => {
   e.waitUntil(
     caches.keys().then((keys) => {
@@ -40,11 +56,10 @@ self.addEventListener('activate', (e) => {
   );
 });
 
-// مرحلة جلب البيانات: تشغيل الموقع بدون إنترنت
+// تشغيل الموقع أوفلاين 
 self.addEventListener('fetch', (e) => {
   e.respondWith(
     caches.match(e.request).then((response) => {
-      // لو الملف موجود في الكاش رجعه، لو مش موجود هاته من النت
       return response || fetch(e.request);
     })
   );
