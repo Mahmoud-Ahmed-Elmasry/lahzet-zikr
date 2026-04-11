@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>لحظة ذكر - أذكارك اليومية </title>
+    <title>لحظة ذكر - أذكارك اليومية من حصن المسلم</title>
     <meta name="description"
-        content="تطبيق لحظة ذكر هو رفيقك اليومي للأذكار وحصن المسلم. يضم أذكار الصباح والمساء، أذكار النوم، ودعاء المسجد بتصميم بسيط وسهل الاستخدام يعمل بدون إنترنت.">
+        content="تطبيق لحظة ذكر هو رفيقك اليومي الشامل لأذكار حصن المسلم. يضم أذكار الصباح والمساء، أذكار النوم، الاستيقاظ، وأدعية المسجد. استمتع بتجربة إيمانية فريدة مع عداد الصلاة على النبي وتصميم بسيط وسهل الاستخدام لكل المسلمين.">
     <meta name="keywords"
-        content="أذكار، لحظة ذكر، أذكار الصباح، أذكار المساء، حصن المسلم، أذكار المسلم، تطبيق أذكار، أذكار بدون نت">
+        content="أذكار، لحظة ذكر، أذكار الصباح، أذكار المساء، حصن المسلم، أذكار المسلم، تطبيق أذكار، كتاب حصن المسلم، أدعية نبوية، الصلاة على النبي">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C0YRRHF1X"></script>
     <script>
@@ -60,7 +60,7 @@
     </footer>
 
     <script>
-        // خلي الجزء ده عشان زرار التثبيت يفضل شغال
+        // كود معالجة تثبيت التطبيق
         let deferredPrompt;
         const installBtn = document.getElementById('installBtn');
         window.addEventListener('beforeinstallprompt', (e) => {
@@ -78,7 +78,7 @@
             }
         });
 
-        // ده الجزء اللي اتعدل عشان يسجل الـ SW الجديد الأونلاين بس
+        // تسجيل الـ Service Worker للعمل كمنصة أونلاين
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
