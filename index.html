@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>لحظة ذكر - أذكارك اليومية </title>
-    <meta name="description" content="تطبيق لحظة ذكر هو رفيقك اليومي للأذكار وحصن المسلم. يضم أذكار الصباح والمساء، أذكار النوم، ودعاء المسجد بتصميم بسيط وسهل الاستخدام يعمل بدون إنترنت.">
-    <meta name="keywords" content="أذكار، لحظة ذكر، أذكار الصباح، أذكار المساء، حصن المسلم، أذكار المسلم، تطبيق أذكار، أذكار بدون نت">
+    <meta name="description"
+        content="تطبيق لحظة ذكر هو رفيقك اليومي للأذكار وحصن المسلم. يضم أذكار الصباح والمساء، أذكار النوم، ودعاء المسجد بتصميم بسيط وسهل الاستخدام يعمل بدون إنترنت.">
+    <meta name="keywords"
+        content="أذكار، لحظة ذكر، أذكار الصباح، أذكار المساء، حصن المسلم، أذكار المسلم، تطبيق أذكار، أذكار بدون نت">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C0YRRHF1X"></script>
     <script>
@@ -16,7 +18,7 @@
         gtag('js', new Date());
         gtag('config', 'G-7C0YRRHF1X');
     </script>
-    
+
     <link rel="icon" type="image/png" href="image/logo.png">
     <link rel="apple-touch-icon" href="image/logo.png">
     <link rel="manifest" href="manifest.json">
@@ -58,6 +60,7 @@
     </footer>
 
     <script>
+        // خلي الجزء ده عشان زرار التثبيت يفضل شغال
         let deferredPrompt;
         const installBtn = document.getElementById('installBtn');
         window.addEventListener('beforeinstallprompt', (e) => {
@@ -74,14 +77,17 @@
                 });
             }
         });
+
+        // ده الجزء اللي اتعدل عشان يسجل الـ SW الجديد الأونلاين بس
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
-                .then(reg => console.log('Service Worker Registered'))
-                .catch(err => console.log('Service Worker Error', err));
+                    .then(reg => console.log('التطبيق مسجل أونلاين بنجاح'))
+                    .catch(err => console.log('خطأ في التسجيل', err));
             });
         }
     </script>
+
 </body>
 
 </html>

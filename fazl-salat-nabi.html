@@ -66,7 +66,7 @@
 
         <div style="height: 30px;"></div>
 
-        <div class="special-counter" id="mainCounter">
+        <div class="special-counter" id="mainCounter" style="cursor: pointer;">
             <div class="pray-text">اللهم صلِّ على محمد</div>
             <div class="num-display" id="countNumber">0</div>
 
@@ -91,15 +91,41 @@
         </div>
     </footer>
 
-    <script src="js\script.js"></script>
-    
     <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js');
-        });
-    }
-</script>
+        // كود العداد
+        let count = 0;
+        const mainArea = document.getElementById('mainCounter');
+        const numberDisplay = document.getElementById('countNumber');
+        const resetBtn = document.getElementById('resetBtn');
+
+        // لما تدوس في أي مكان في منطقة العداد يزيد 1
+        if (mainArea) {
+            mainArea.addEventListener('click', function (e) {
+                // نمنع الزيادة لو الدوسة كانت على زرار التصفير نفسه
+                if (e.target.id === 'resetBtn' || e.target.parentElement.id === 'resetBtn') return;
+
+                count++;
+                numberDisplay.innerText = count;
+                if (navigator.vibrate) navigator.vibrate(50);
+            });
+        }
+
+        // لما تدوس على زرار التصفير يرجع 0
+        if (resetBtn) {
+            resetBtn.addEventListener('click', function (e) {
+                e.stopPropagation(); // عشان ما يحسبش دوسة عداد مع التصفير
+                count = 0;
+                numberDisplay.innerText = count;
+            });
+        }
+
+        // تسجيل الـ Service Worker (Online-Only)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js');
+            });
+        }
+    </script>
 
 </body>
 
