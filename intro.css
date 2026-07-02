@@ -1,0 +1,150 @@
+/* ========================================= */
+/* 1. تصفير شامل وحقيقي لكل عناصر الصفحة */
+/* ========================================= */
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    overflow-x: hidden;
+    /* عشان ميبقاش فيه سكرول بالعرض */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    font-size: x-large;
+    background-color: rgba(201, 201, 201, 0.849);
+    line-height: 1.6;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    font-weight: bold;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================================= */
+/* 2. العنوان (الشريط الأخضر الممتد) */
+/* ========================================= */
+h1 {
+    color: white;
+    background-color: green;
+    padding: 15px 0;
+    /* مساحة داخلية فوق وتحت النص */
+    margin: 0 !important;
+    /* تصفير المارجن تماماً من كل الجهات */
+    width: 100%;
+    display: block;
+    position: relative;
+    /* عشان زرار التحميل يتحرك بالنسبة له */
+}
+
+/* ========================================= */
+/* 3. الأقسام (الأزرار البيضاء) - تصميمك الأصلي */
+/* ========================================= */
+.btn-intro {
+    text-decoration: none;
+    color: white;
+    background-color: green;
+    padding: 12px 20px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 320px;
+    min-height: 60px;
+    height: auto;
+    text-align: center;
+    transition: 0.3s;
+    white-space: normal;
+    overflow: hidden;
+}
+
+.btn-intro:hover {
+    background-color: #006400;
+    transform: scale(1.02);
+}
+
+/* ========================================= */
+/* 4. الفوتر - تصميمك الأصلي */
+/* ========================================= */
+footer {
+    background-color: #1b3022;
+    color: #e0e0e0;
+    width: 100%;
+    margin-top: auto;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 2px solid green;
+}
+
+.note {
+    color: red;
+}
+
+.btn-wat {
+    text-decoration: none;
+    color: white;
+    background-color: #28a745;
+    padding: 10px 18px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 800;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid white;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-wat:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+}
+
+/* ========================================= */
+/* 5. زر تحميل التطبيق (الإعدادات اللي إنت ظبطتها) */
+/* ========================================= */
+.btn-install-fixed {
+    display: none;
+    position: absolute;
+    left: 2px;
+    /* جرب تغير دي لو عايز تحركه يمين شوية */
+    top: 50%;
+    transform: translateY(-50%);
+
+    background-color: #00e676;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+
+    transition: all 0.2s ease;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-install-fixed:hover {
+    background-color: #03b8c5a1;
+    color: white;
+}
+
+.btn-install-fixed:active {
+    transform: translateY(-48%) scale(0.95);
+}
